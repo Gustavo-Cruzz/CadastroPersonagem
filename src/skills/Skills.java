@@ -29,7 +29,5 @@ public void setDescricao(String descricao) {
 	this.nome = nome;
 }
  
-public String toString(){
-	 return "Skill: " + nome + "\nLevel: " + level + "\nDescrição: " + descricao+"\n";
- }
+public abstract String toString();
 }
