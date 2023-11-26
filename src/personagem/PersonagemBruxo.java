@@ -41,7 +41,7 @@ public class PersonagemBruxo extends Personagem {
                 ", sabedoria=" + getSabedoria() +
                 ", classe=" + getClasse() +
                 ", dataCriacao=" + getDataCriacao() +
-                ", habilidadesFisicas=" + magias +
+                ", magias=" + magias +
                 '}';
     }
 }

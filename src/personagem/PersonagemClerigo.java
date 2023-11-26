@@ -41,7 +41,7 @@ public class PersonagemClerigo extends Personagem {
                 ", sabedoria=" + getSabedoria() +
                 ", classe=" + getClasse() +
                 ", dataCriacao=" + getDataCriacao() +
-                ", habilidadesMágicas=" + magias +
+                ", magias=" + magias +
                 '}';
     }
 }
