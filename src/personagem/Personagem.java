@@ -105,4 +105,6 @@ public abstract class Personagem {
     public void setClasse(ClassePersonagem classe) {
         this.classe = classe;
     }
+    
+    public abstract String toString();
 }
