@@ -24,4 +24,20 @@ public class PersonagemGuerreiro extends Personagem{
     public ArrayList<SkillFisica> obterHabilidadesFisicas() {
         return habilidadesFisicas;
     }
+    
+    @Override
+    public String toString() {
+        return "PersonagemGuerreiro{" +
+                "nome='" + getNome() + '\'' +
+                ", idade=" + getIdade() +
+                ", forca=" + getForca() +
+                ", inteligencia=" + getInteligencia() +
+                ", carisma=" + getCarisma() +
+                ", constituicao=" + getConstituicao() +
+                ", sabedoria=" + getSabedoria() +
+                ", classe=" + getClasse() +
+                ", dataCriacao=" + getDataCriacao() +
+                ", habilidadesFisicas=" + habilidadesFisicas +
+                '}';
+    }
 }
