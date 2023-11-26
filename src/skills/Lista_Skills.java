@@ -5,6 +5,7 @@ import java.util.*;
 public class Lista_Skills {
    
 	 ArrayList <Skills> skills = new ArrayList<Skills>();
+	 ArrayList <Skills> magias = new ArrayList<Skills>();
 	public Lista_Skills() {
 		Fisicas aux = new Fisicas(1,"Ataque Duplo","O usuário é capaz de rolar um segundo ataque durante sua ação, causando metade do dano em relação ao primeiro ataque");
 		skills.add(aux);
@@ -27,36 +28,38 @@ public class Lista_Skills {
 		aux = new Fisicas(12,"Golpe Vertical","O usuário é capaz de desferir um golpe vertical à um inimigo menor ou igual em questão de tamanho, cortando-o pela metade causando morte instantânea");
 		skills.add(aux);
 		Magias aux2 = new Magias(1,"Míssil Mágico","Três projéteis incapazes de errar, causando 3d4 de dano mágico",10);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(2,"Ataque de ácido", "Um projétiil de ácido corrosivo causando 1d10+8 de dano mágico",15);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(3,"Onda de choque","Uma forte onda sonora capaz de atordoar todos os indivíduos em um raio de 10m",30);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(4,"Brasas","Uma pequena rajada de forgo causando 1d10 de dano mágico e aplicando queimaduras na qual causam 1d5 de dano de fogo a cada turno por 3 turnos",15);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(5,"Estaca de gelo","Um projétil de gelo capaz de causar 2d10+10 de dano em um único alvo",40);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(5,"Bola de Fogo","Uma grande bola de fogo causando 1d15+5 de dano mágico e queimaduras em todos os inimigos em um raio de 2m de sua explosão ao acertar o alvo",40);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(7,"Teleporte","O usuário é capaz de teleportar em um raio de 30m em realção a sua posição inicial",30);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(9,"Barragem arcana","10 mísseis mágicos incapazes de errar, causando 10d5 de dano",20);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(9,"Pilar de fogo","Um pilar flamejante com um raio de 5m capaz de causar 2d20+15 de dano mágico e queimaduras",60);
-		skills.add(aux2);
+		magias.add(aux2);
 		aux2 = new Magias(10,"Raio azul","Um enorme raio arcano causando 20d10 de dano mágico",150);
-		skills.add(aux2);
+		magias.add(aux2);
 
 	}
 	public void Mostrar_Skills() {
 		System.out.println("-----------------------------Habilidades-----------------------------");
 		for (Skills c : skills){
-			if(c == skills.get(10)) {
-				System.out.println("-----------------------------Magias-----------------------------");
-			}
+	         System.out.println(c);
+	    }
+	}
+	public void Mostrar_Magias() {
+		System.out.println("-----------------------------Magias-----------------------------");
+		for (Skills c : magias){
 	         System.out.println(c);
 	    }
 	}
 	
-	 
 }
