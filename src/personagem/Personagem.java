@@ -5,11 +5,12 @@ import java.util.Date;
 public abstract class Personagem {
     private String nome;
     private Integer idade;
-    private Integer forca;
-    private Integer inteligencia;
-    private Integer carisma;
-    private Integer constituicao;
-    private Integer sabedoria;
+    private Integer Level;
+    private Integer forca=0;
+    private Integer inteligencia=0;
+    private Integer carisma=0;
+    private Integer constituicao=0;
+    private Integer sabedoria=0;
     private ClassePersonagem classe;
     private Date dataCriacao; // Novo campo para a data de criação
 
@@ -19,11 +20,12 @@ public abstract class Personagem {
     }
 
     // Construtor com parâmetros
-    public Personagem(String nome, Integer idade, Integer forca, Integer inteligencia,
+    public Personagem(String nome, Integer idade, Integer level, Integer forca, Integer inteligencia,
                        Integer carisma, Integer constituicao, Integer sabedoria,
                        ClassePersonagem classe) {
         this.nome = nome;
         this.idade = idade;
+        this.Level = level;
         this.forca = forca;
         this.inteligencia = inteligencia;
         this.carisma = carisma;
@@ -106,5 +108,14 @@ public abstract class Personagem {
         this.classe = classe;
     }
     
-    public abstract String toString();
+    public Integer getLevel() {
+		return Level;
+	}
+
+	public void setLevel(Integer level) {
+		Level = level;
+	}
+	public abstract void toStringSimplificada();
+
+	public abstract String toString();
 }

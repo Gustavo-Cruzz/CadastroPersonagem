@@ -1,38 +1,64 @@
 package jogador;
 import personagem.*;
-
+import skills.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
 public class CadastroAutomatico {
-
-    public static void main(String[] args) {
-        ArrayList<Personagem> personagens = gerarPersonagensAleatorios(10);
-
-        // Exemplo de como você pode usar os personagens gerados
-        for (Personagem personagem : personagens) {
-            System.out.println(personagem);
-        }
-    }
     
     // Usando a ideia de Facory ou Abstract Factory
-    public static Personagem criarPersonagem(String nome, Integer idade, Integer forca, Integer inteligencia,
+    public static Personagem criarPersonagem(String nome, Integer idade,Integer level, Integer forca, Integer inteligencia,
                                              Integer carisma, Integer constituicao, Integer sabedoria,
                                              ClassePersonagem classe) {
         switch (classe) {
             case GUERREIRO:
-                return new PersonagemGuerreiro(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemGuerreiro guerreiro = new PersonagemGuerreiro(nome, idade, level, forca, inteligencia, carisma, constituicao, sabedoria);
+                for (SkillFisica c : ListaSkillsFisicas.getSkills()){
+     			   if(c.getLevel()<=guerreiro.getLevel()) {
+   		        	 guerreiro.adicionarHabilidadeFisica(c);
+     			   }
+   		    }
+            return guerreiro;
             case LADINO:
-                return new PersonagemLadino(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemLadino ladino = new PersonagemLadino(nome, idade,level, forca, inteligencia, carisma, constituicao, sabedoria);
+                for (SkillFisica c : ListaSkillsFisicas.getSkills()){
+     			   if(c.getLevel()<=ladino.getLevel()) {
+   		        	 ladino.adicionarHabilidadeFisica(c);
+     			   }
+   		    }
+            return ladino;
             case PONTEIRO:
-                return new PersonagemPonteiro(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemPonteiro ponteiro =new PersonagemPonteiro(nome, idade,level, forca, inteligencia, carisma, constituicao, sabedoria);
+                for (SkillFisica c : ListaSkillsFisicas.getSkills()){
+     			   if(c.getLevel()<=ponteiro.getLevel()) {
+   		        	 ponteiro.adicionarHabilidadeFisica(c);
+     			   }
+   		    }
+               return ponteiro;
             case BRUXO:
-                return new PersonagemBruxo(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemBruxo bruxo =new PersonagemBruxo(nome, idade, level,forca, inteligencia, carisma, constituicao, sabedoria);
+                for (Magias c : ListaMagias.getMagias()){
+     			   if(c.getLevel()<=bruxo.getLevel()) {
+     				   bruxo.adicionarMagias(c);
+     			   }
+   		    }
+                return bruxo;
             case CLERIGO:
-                return new PersonagemClerigo(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemClerigo clerigo = new PersonagemClerigo(nome, idade,level, forca, inteligencia, carisma, constituicao, sabedoria);
+                for (Magias c : ListaMagias.getMagias()){
+     			   if(c.getLevel()<=clerigo.getLevel()) {
+     				   clerigo.adicionarMagias(c);
+     			   }
+   		    }
             case CERTINHO:
-                return new PersonagemCertinho(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria);
+                PersonagemCertinho certinho = new PersonagemCertinho(nome, idade,level, forca, inteligencia, carisma, constituicao, sabedoria);
+                for (Magias c : ListaMagias.getMagias()){
+     			   if(c.getLevel()<=certinho.getLevel()) {
+     				   certinho.adicionarMagias(c);
+     			   }
+   		    }
+             return certinho;
             
             // Indicando classe inválida
             default:
@@ -40,13 +66,12 @@ public class CadastroAutomatico {
         }
     }
 
-    public static ArrayList<Personagem> gerarPersonagensAleatorios(int quantidade) {
-        ArrayList<Personagem> personagens = new ArrayList<>();
+    public static ArrayList<Personagem> gerarPersonagensAleatorios(int quantidade, ArrayList<Personagem> personagens) {
         Random random = new Random();
-
         for (int i = 0; i < quantidade; i++) {
             String nome = "Personagem" + i;
             Integer idade = random.nextInt(80) + 14; // Personagens entre 14 e 80 anos
+            Integer level = random.nextInt(14) + 1;  // Level entre 1 e 14
             Integer forca = random.nextInt(20) + 1; // Gera um número entre 1 e 20
             Integer inteligencia = random.nextInt(20) + 1;
             Integer carisma = random.nextInt(20) + 1;
@@ -55,9 +80,10 @@ public class CadastroAutomatico {
 
             // Escolhe uma classe aleatória dentre as disponíveis no Enum ClassePersonagem
             ClassePersonagem classe = ClassePersonagem.values()[random.nextInt(ClassePersonagem.values().length)];
+            
 
             // Usa a fábrica para criar uma instância específica da classe de personagem
-            Personagem personagem = criarPersonagem(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria, classe);
+            Personagem personagem = criarPersonagem(nome, idade, level, forca, inteligencia, carisma, constituicao, sabedoria, classe);
             personagem.setDataCriacao(new Date()); // Define a data de criação como a data atual
 
             // Adiciona o personagem à lista

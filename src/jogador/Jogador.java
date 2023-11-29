@@ -26,6 +26,7 @@ public class Jogador {
 		//e retorna se a operação foi possível de ser realizada
 		return personagens.remove(personagem);
 	}
+	
 	public String getNomeJogador() {
 		//Consegue o nome do jogador
 		return nomeJogador;
@@ -35,6 +36,12 @@ public class Jogador {
 		this.nomeJogador = nomeJogador;
 	}
 	
+	public ArrayList<Personagem> getPersonagens() {
+		return personagens;
+	}
+	public void setPersonagens(ArrayList<Personagem> personagens) {
+		this.personagens = personagens;
+	}
 	@Override
 	public String toString() {
 		//toString do jogador, utiliza o toString dos personagens
@@ -76,6 +83,8 @@ public class Jogador {
 			//Ordena por sabedoria
 			Collections.sort(personagens,Sort.pSabedoria);
 			break;
+		 default: 
+			 break;
 		}
 	}
 }

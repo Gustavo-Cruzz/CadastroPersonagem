@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ListaSkillsFisicas {
 	
-	 ArrayList <SkillFisica> skills = new ArrayList<SkillFisica>();
+	 static ArrayList <SkillFisica> skills = new ArrayList<SkillFisica>();
 	 
 	 public void Lista_Skills() {
 		SkillFisica aux = new SkillFisica(1,"Ataque Duplo","O usuário é capaz de rolar um segundo ataque durante sua ação, causando metade do dano em relação ao primeiro ataque");
@@ -39,7 +39,18 @@ public class ListaSkillsFisicas {
 		
 	 }
 	 
-	 public void Mostrar_Skills() {
+	 
+	 public static ArrayList<SkillFisica> getSkills() {
+		return skills;
+	}
+
+
+	public void setSkills(ArrayList<SkillFisica> skills) {
+		ListaSkillsFisicas.skills = skills;
+	}
+
+
+	public void Mostrar_Skills() {
 			System.out.println("-----------------------------Habilidades-----------------------------");
 			for (Skills c : skills){
 		         System.out.println(c);

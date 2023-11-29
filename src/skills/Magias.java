@@ -15,7 +15,7 @@ public class Magias extends Skills{
 		super(level, nome, descricao);
 		this.mp = mp;
 	}
-
+    
 	@Override
 	public String toString() {
 		return "Skill: " + super.getNome() + "\nLevel: " + super.getLevel() + "\nDescrição: " + super.getDescricao() +"\n" + "Mana Gasta: " + mp + "\n";

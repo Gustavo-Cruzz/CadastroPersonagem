@@ -13,14 +13,14 @@ public class PersonagemClerigo extends Personagem {
     }
 
     // Construtor com parâmetros
-    public PersonagemClerigo(String nome, Integer idade, Integer forca, Integer inteligencia,
+    public PersonagemClerigo(String nome, Integer idade, Integer level, Integer forca, Integer inteligencia,
                               Integer carisma, Integer constituicao, Integer sabedoria) {
-        super(nome, idade, forca, inteligencia, carisma, constituicao, sabedoria, ClassePersonagem.CLERIGO);
+        super(nome, idade, level ,forca, inteligencia, carisma, constituicao, sabedoria, ClassePersonagem.CLERIGO);
         magias = new ArrayList<>();
     }
 
     // Método para adicionar uma habilidade mágica ao clérigo
-    public void adicionarMagia(Magias magia) {
+    public void adicionarMagias(Magias magia) {
         magias.add(magia);
     }
 
@@ -28,20 +28,15 @@ public class PersonagemClerigo extends Personagem {
     public ArrayList<Magias> obterMagias() {
         return magias;
     }
-
+    @Override
+    public void toStringSimplificada() {
+    	System.out.println("Nome: " + getNome() + "\nIdade: " + getIdade() + "\nClasse: " + getClasse() + "\nLevel: " + getLevel() + "\nData de Criacao: "+ getDataCriacao() + "\nForca: " + getForca() + "\nInteligencia: " + getInteligencia() + "\nCarisma: " + getCarisma() + "\nConstituicao: " + getConstituicao() + "\nSabedoria: " + getSabedoria() + "\nMagias: \n ");
+    	for (Magias c : magias){
+			  System.out.println("- "+c.getNome());
+	    }
+    }
     @Override
     public String toString() {
-        return "PersonagemClerigo{" +
-                "nome='" + getNome() + '\'' +
-                ", idade=" + getIdade() +
-                ", forca=" + getForca() +
-                ", inteligencia=" + getInteligencia() +
-                ", carisma=" + getCarisma() +
-                ", constituicao=" + getConstituicao() +
-                ", sabedoria=" + getSabedoria() +
-                ", classe=" + getClasse() +
-                ", dataCriacao=" + getDataCriacao() +
-                ", magias=" + magias +
-                '}';
+    	return "Nome: " + getNome() + "\nIdade: " + getIdade()+ "\nClasse: " + getClasse() + "\nLevel: " + getLevel() + "\nData de Criacao: "+ getDataCriacao()+ "\nForca: " + getForca() + "\nInteligencia: " + getInteligencia() + "\nCarisma: " + getCarisma() + "\nConstituicao: " + getConstituicao() + "\nSabedoria: " + getSabedoria() + "\nMagias: \n " + magias;
     }
 }

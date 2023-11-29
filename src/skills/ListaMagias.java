@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ListaMagias {
 
-	ArrayList <Magias> magias = new ArrayList<Magias>();
+	static ArrayList <Magias> magias = new ArrayList<Magias>();
 	
 	public void listaMagias() {
 		Magias aux2 = new Magias(1,"Míssil Mágico","Três projéteis incapazes de errar, causando 3d4 de dano mágico",10);
@@ -37,6 +37,17 @@ public class ListaMagias {
 		aux2 = new Magias(10,"Raio azul","Um enorme raio arcano causando 20d10 de dano mágico",150);
 		magias.add(aux2);
 }
+	
+
+public static ArrayList<Magias> getMagias() {
+		return magias;
+	}
+
+
+	public void setMagias(ArrayList<Magias> magias) {
+		ListaMagias.magias = magias;
+	}
+
 
 public void Mostrar_Magias() {
 	System.out.println("-----------------------------Magias-----------------------------");
