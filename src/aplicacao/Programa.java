@@ -21,9 +21,10 @@ public class Programa {
        while(opc != 7){
        System.out.println("O que gostaria de fazer? \n 1 - Criar um personagem novo \n 2 - Checar minha lista de personagens \n 3 - Alterar a forma de ordenacao dos Personagens \n 4 - Remover um personagem\n 5 - Alterar um personagem \n 6 - Procurar um personagem por nome \n 7 - Sair");
        opc = sc.nextInt();
-       String pers=new String();
+       String pers=new String(); //String utilizada nas funções que utilizam a busca de personagem
        switch(opc){
        case 1:
+    	   //Criar personagem novo
     	   System.out.println("Certinho! Primeiro escolha a classe de seu personagem entre essas: ");
     	   System.out.println(" - Bruxo \n - Certinho \n - Clerigo \n - Guerreiro \n - Ladino \n - Ponteiro");
     	   sc.nextLine();
@@ -376,12 +377,14 @@ public class Programa {
     	   }
     	   break;
        case 2:
+    	   //Mostra os personagens em tela de forma simplificada
     	   for(Personagem c : jogador.getPersonagens()) {
     		   c.toStringSimplificada();
     		   System.out.println("\n");
     	   }
     	   break;
        case 3:
+    	   //Organiza o ArrayList conforme o parâmetro dado
     	   System.out.println("Gostaria de organizar os personagens por Nome, Idade, Level, Forca, Inteligencia, Carisma, Constituicao ou Sabedoria?");
            switch(sc.next().toLowerCase()) {
            case "nome":
@@ -411,6 +414,7 @@ public class Programa {
            }
            break;
        case 4:
+    	   //Tenta remover um personagem com base no nome
     	   System.out.println("Qual o nome do personagem que se deseja remover?");
     	   sc.nextLine();
     	   pers=sc.nextLine().replace("\n","");
@@ -421,6 +425,7 @@ public class Programa {
     	   }
     	   break;
        case 5:
+    	   //Tenta altarar um personagem com base no nome
     	   System.out.println("Qual o nome do personagem que se deseja alterar?");
     	   sc.nextLine();
     	   pers=sc.nextLine().replace("\n", "");
@@ -431,6 +436,7 @@ public class Programa {
     	   }
     	   break;
        case 6:
+    	   //Procura um personagem com base no nome
     	   System.out.println("Qual o nome do personagem que se deseja procurar?");
     	   sc.nextLine();
     	   pers=sc.nextLine().replace("\n", "");
@@ -444,8 +450,10 @@ public class Programa {
     	   }
     	   break;
        case 7:
+    	   //Sair do programa
     	   break;
        default:
+    	   //Não é uma opção
     	   break;
        }
        } 

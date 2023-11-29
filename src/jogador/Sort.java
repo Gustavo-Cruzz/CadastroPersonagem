@@ -54,10 +54,10 @@ public class Sort {
 				//Level A maior que B
 				return 1;
 			}else if(a.getLevel()==b.getLevel()) {
-				//Idades Iguais, ordena por nome
+				//Levels Iguais, ordena por nome
 				return name(a,b);
 			}else {
-				//Idade B maior que A
+				//Level B maior que A
 				return -1;
 			}
 		}
