@@ -48,7 +48,20 @@ public class Sort {
 			}
 		}
 	};
-	
+	static Comparator<Personagem>pLevel=(Comparator<Personagem>)new Comparator<Personagem>(){
+		public int compare (Personagem a, Personagem b) {
+			if(a.getLevel()>b.getLevel()) {
+				//Level A maior que B
+				return 1;
+			}else if(a.getLevel()==b.getLevel()) {
+				//Idades Iguais, ordena por nome
+				return name(a,b);
+			}else {
+				//Idade B maior que A
+				return -1;
+			}
+		}
+	};
 	//Por Força
 	static Comparator<Personagem>pForca=(Comparator<Personagem>)new Comparator<Personagem>(){
 		public int compare (Personagem a, Personagem b) {

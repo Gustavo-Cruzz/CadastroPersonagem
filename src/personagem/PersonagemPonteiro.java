@@ -10,6 +10,7 @@ public class PersonagemPonteiro extends Personagem {
     public PersonagemPonteiro() {
         super();
         habilidadesFisicas = new ArrayList<>();
+        this.setClasse(ClassePersonagem.PONTEIRO);
     }
 
     // Construtor com parâmetros

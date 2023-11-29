@@ -18,16 +18,17 @@ public class Programa {
        System.out.println("Novo jogador, qual o seu nome?");
        jogador.setNomeJogador(sc.nextLine());
        int opc = 0;
-       while(opc != 3){
-       System.out.println("O que gostaria de fazer? \n 1 - Criar um personagem novo \n 2 - Checar minha lista de personagens \n 3 - Sair");
+       while(opc != 7){
+       System.out.println("O que gostaria de fazer? \n 1 - Criar um personagem novo \n 2 - Checar minha lista de personagens \n 3 - Alterar a forma de ordenacao dos Personagens \n 4 - Remover um personagem\n 5 - Alterar um personagem \n 6 - Procurar um personagem por nome \n 7 - Sair");
        opc = sc.nextInt();
+       String pers=new String();
        switch(opc){
        case 1:
     	   System.out.println("Certinho! Primeiro escolha a classe de seu personagem entre essas: ");
     	   System.out.println(" - Bruxo \n - Certinho \n - Clerigo \n - Guerreiro \n - Ladino \n - Ponteiro");
     	   sc.nextLine();
-    	   switch(sc.nextLine()) {
-    	   case "Guerreiro":
+    	   switch(sc.nextLine().toLowerCase()) {
+    	   case "guerreiro":
     		   PersonagemGuerreiro guerreiro = new PersonagemGuerreiro();
     		   guerreiro.setClasse(ClassePersonagem.GUERREIRO);
     		   System.out.println("Nome: ");
@@ -38,34 +39,34 @@ public class Programa {
     		   guerreiro.setLevel(sc.nextInt());
     		   for(int pontos=50;pontos>0;) {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
-    			   System.out.println(" - Forca: " + guerreiro.getForca() + "\n - Inteligencia: " + guerreiro.getInteligencia() + "\n - Carisma: " + guerreiro.getCarisma() + "\n - Constituicao: " + guerreiro.getConstituicao() + "\n Sabedoria: " + guerreiro.getSabedoria());
+    			   System.out.println(" - Forca: " + guerreiro.getForca() + "\n - Inteligencia: " + guerreiro.getInteligencia() + "\n - Carisma: " + guerreiro.getCarisma() + "\n - Constituicao: " + guerreiro.getConstituicao() + "\n - Sabedoria: " + guerreiro.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
                        guerreiro.setForca(guerreiro.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
                        guerreiro.setInteligencia(guerreiro.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
                        guerreiro.setCarisma(guerreiro.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
                        guerreiro.setConstituicao(guerreiro.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -87,7 +88,7 @@ public class Programa {
     		   opc = sc.nextInt();
     		   break;
     		   
-    	   case "Ladino":
+    	   case "ladino":
     		   PersonagemLadino Ladino = new PersonagemLadino();
     		   System.out.println("Nome: ");
     		   Ladino.setNome(sc.nextLine());
@@ -99,32 +100,32 @@ public class Programa {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
     			   System.out.println(" - Forca: " + Ladino.getForca() + "\n - Inteligencia: " + Ladino.getInteligencia() + "\n - Carisma: " + Ladino.getCarisma() + "\n - Constituicao: " + Ladino.getConstituicao() + "\n - Sabedoria: " + Ladino.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ladino.setForca(Ladino.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ladino.setInteligencia(Ladino.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ladino.setCarisma(Ladino.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ladino.setConstituicao(Ladino.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -144,7 +145,7 @@ public class Programa {
     		   jogador.addPersonagem(Ladino);
     		   break;
 
-    	   case "Ponteiro":
+    	   case "ponteiro":
     		   PersonagemPonteiro Ponteiro = new PersonagemPonteiro();
     		   System.out.println("Nome: ");
     		   Ponteiro.setNome(sc.nextLine());
@@ -154,34 +155,34 @@ public class Programa {
     		   Ponteiro.setLevel(sc.nextInt());
     		   for(int pontos=50;pontos>0;) {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
-    			   System.out.println(" - Forca: " + Ponteiro.getForca() + "\n - Inteligencia: " + Ponteiro.getInteligencia() + "\n - Carisma: " + Ponteiro.getCarisma() + "\n - Constituicao: " + Ponteiro.getConstituicao() + "\n Sabedoria: " + Ponteiro.getSabedoria());
+    			   System.out.println(" - Forca: " + Ponteiro.getForca() + "\n - Inteligencia: " + Ponteiro.getInteligencia() + "\n - Carisma: " + Ponteiro.getCarisma() + "\n - Constituicao: " + Ponteiro.getConstituicao() + "\n - Sabedoria: " + Ponteiro.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ponteiro.setForca(Ponteiro.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ponteiro.setInteligencia(Ponteiro.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ponteiro.setCarisma(Ponteiro.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Ponteiro.setConstituicao(Ponteiro.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -201,7 +202,7 @@ public class Programa {
     		   jogador.addPersonagem(Ponteiro);
     		   break;
 
-    	   case "Bruxo":
+    	   case "bruxo":
     		   PersonagemBruxo Bruxo = new PersonagemBruxo();
     		   System.out.println("Nome: ");
     		   Bruxo.setNome(sc.nextLine());
@@ -211,34 +212,34 @@ public class Programa {
     		   Bruxo.setLevel(sc.nextInt());
     		   for(int pontos=50;pontos>0;) {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
-    			   System.out.println(" - Forca: " + Bruxo.getForca() + "\n - Inteligencia: " + Bruxo.getInteligencia() + "\n - Carisma: " + Bruxo.getCarisma() + "\n - Constituicao: " + Bruxo.getConstituicao() + "\n Sabedoria: " + Bruxo.getSabedoria());
+    			   System.out.println(" - Forca: " + Bruxo.getForca() + "\n - Inteligencia: " + Bruxo.getInteligencia() + "\n - Carisma: " + Bruxo.getCarisma() + "\n - Constituicao: " + Bruxo.getConstituicao() + "\n - Sabedoria: " + Bruxo.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Bruxo.setForca(Bruxo.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Bruxo.setInteligencia(Bruxo.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Bruxo.setCarisma(Bruxo.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Bruxo.setConstituicao(Bruxo.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -258,7 +259,7 @@ public class Programa {
     		   jogador.addPersonagem(Bruxo);
     		   break;
 
-    	   case "Certinho":
+    	   case "certinho":
     		   PersonagemCertinho Certinho = new PersonagemCertinho();
     		   System.out.println("Nome: ");
     		   Certinho.setNome(sc.nextLine());
@@ -268,34 +269,34 @@ public class Programa {
     		   Certinho.setLevel(sc.nextInt());
     		   for(int pontos=50;pontos>0;) {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
-    			   System.out.println(" - Forca: " + Certinho.getForca() + "\n - Inteligencia: " + Certinho.getInteligencia() + "\n - Carisma: " + Certinho.getCarisma() + "\n - Constituicao: " + Certinho.getConstituicao() + "\n Sabedoria: " + Certinho.getSabedoria());
+    			   System.out.println(" - Forca: " + Certinho.getForca() + "\n - Inteligencia: " + Certinho.getInteligencia() + "\n - Carisma: " + Certinho.getCarisma() + "\n - Constituicao: " + Certinho.getConstituicao() + "\n - Sabedoria: " + Certinho.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Certinho.setForca(Certinho.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Certinho.setInteligencia(Certinho.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Certinho.setCarisma(Certinho.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Certinho.setConstituicao(Certinho.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -315,7 +316,7 @@ public class Programa {
     		   jogador.addPersonagem(Certinho);
     		   break;
 
-    	   case "Clerigo":
+    	   case "clerigo":
     		   PersonagemClerigo Clerigo = new PersonagemClerigo();
     		   System.out.println("Nome: ");
     		   Clerigo.setNome(sc.nextLine());
@@ -325,34 +326,34 @@ public class Programa {
     		   Clerigo.setLevel(sc.nextInt());
     		   for(int pontos=50;pontos>0;) {
     			   System.out.println("Distribua os " + pontos + " restantes entre os atributos:" );
-    			   System.out.println(" - Forca: " + Clerigo.getForca() + "\n - Inteligencia: " + Clerigo.getInteligencia() + "\n - Carisma: " + Clerigo.getCarisma() + "\n - Constituicao: " + Clerigo.getConstituicao() + "\n Sabedoria: " + Clerigo.getSabedoria());
+    			   System.out.println(" - Forca: " + Clerigo.getForca() + "\n - Inteligencia: " + Clerigo.getInteligencia() + "\n - Carisma: " + Clerigo.getCarisma() + "\n - Constituicao: " + Clerigo.getConstituicao() + "\n - Sabedoria: " + Clerigo.getSabedoria());
     			   System.out.println("\n Escolha o atributo que deseja colocar seus pontos: ");
-    			   switch(sc.next()) {
-    			   case "Forca":
+    			   switch(sc.next().toLowerCase()) {
+    			   case "forca":
     				   System.out.println("Quantos pontos deseja colocar em Forca?");
     				   int pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Clerigo.setForca(Clerigo.getForca()+pontosaux);
                        break;
-    			   case "Inteligencia":
+    			   case "inteligencia":
     				   System.out.println("Quantos pontos deseja colocar em Inteligencia?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Clerigo.setInteligencia(Clerigo.getInteligencia()+pontosaux);
                        break;
-    			   case "Carisma":
+    			   case "carisma":
     				   System.out.println("Quantos pontos deseja colocar em Carisma?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Clerigo.setCarisma(Clerigo.getCarisma()+pontosaux);
                        break;
-    			   case "Constituicao":
+    			   case "constituicao":
     				   System.out.println("Quantos pontos deseja colocar em Constituicao?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
     				   Clerigo.setConstituicao(Clerigo.getConstituicao()+pontosaux);
                        break;
-    			   case "Sabedoria":
+    			   case "sabedoria":
     				   System.out.println("Quantos pontos deseja colocar em Sabedoria?");
     				   pontosaux = sc.nextInt();
     				   pontos = pontos - pontosaux;
@@ -375,53 +376,74 @@ public class Programa {
     	   }
     	   break;
        case 2:
-    	   int check = 1;
-    	   do {
-    		   
     	   for(Personagem c : jogador.getPersonagens()) {
     		   c.toStringSimplificada();
     		   System.out.println("\n");
     	   }
-    	   System.out.println("Gostaria de organizar os personagens por Nome, Idade, Forca, Inteligencia, Carisma, Constituicao, Sabedoria ou Nenhum, ou gostaria de Remover um personagem?");
-           switch(sc.next()) {
-           case "Nome":
-        	   jogador.sortBy(SortBy.nome);
-        	   break;
-           case "Idade":
-        	   jogador.sortBy(SortBy.idade);
-        	   break;
-           case "Forca":
-        	   jogador.sortBy(SortBy.forca);
-        	   break;
-           case "Inteligencia":
-        	   jogador.sortBy(SortBy.inteligencia);
-        	   break;
-           case "Carisma":
-        	   jogador.sortBy(SortBy.carisma);
-        	   break;
-           case "Constituicao":
-        	   jogador.sortBy(SortBy.constituicao);
-        	   break;
-           case "Sabedoria":
-        	   jogador.sortBy(SortBy.sabedoria);
-        	   break;
-           case "Remover":
-        	   System.out.println("Digite o nome do personagem que voce deseja remover: ");
-        	   sc.nextLine();
-        	   String nome = sc.nextLine();
-        	   for(Personagem c : jogador.getPersonagens()) {
-        		   if(c.getNome().matches(nome)) {
-        			   jogador.remPersonagem(c);
-        		   }
-        	   }
-        	   break;
-        	default:
-        		check = 0;
-        		break;
-           }
-    	   }while(check!=0);
     	   break;
        case 3:
+    	   System.out.println("Gostaria de organizar os personagens por Nome, Idade, Level, Forca, Inteligencia, Carisma, Constituicao ou Sabedoria?");
+           switch(sc.next().toLowerCase()) {
+           case "nome":
+        	   jogador.sortBy(SortBy.nome);
+        	   break;
+           case "idade":
+        	   jogador.sortBy(SortBy.idade);
+        	   break;
+           case "level":
+        	   jogador.sortBy(SortBy.level);
+        	   break;
+           case "forca":
+        	   jogador.sortBy(SortBy.forca);
+        	   break;
+           case "inteligencia":
+        	   jogador.sortBy(SortBy.inteligencia);
+        	   break;
+           case "carisma":
+        	   jogador.sortBy(SortBy.carisma);
+        	   break;
+           case "constituicao":
+        	   jogador.sortBy(SortBy.constituicao);
+        	   break;
+           case "sabedoria":
+        	   jogador.sortBy(SortBy.sabedoria);
+        	   break;
+           }
+           break;
+       case 4:
+    	   System.out.println("Qual o nome do personagem que se deseja remover?");
+    	   sc.nextLine();
+    	   pers=sc.nextLine().replace("\n","");
+    	   if(jogador.remPersonagem(jogador.encontraPersonagem(pers))) {
+    		   System.out.println("\nPersonagem removido!\n");
+    	   }else {
+    		   System.out.println("\nFalha na remocao.\n");
+    	   }
+    	   break;
+       case 5:
+    	   System.out.println("Qual o nome do personagem que se deseja alterar?");
+    	   sc.nextLine();
+    	   pers=sc.nextLine().replace("\n", "");
+    	   if(jogador.alteraPersonagem(jogador.encontraPersonagem(pers))) {
+    		   System.out.println("\nPersonagem alterado!\n");
+    	   }else {
+    		   System.out.println("\nFalha na alteracao.\n");
+    	   }
+    	   break;
+       case 6:
+    	   System.out.println("Qual o nome do personagem que se deseja procurar?");
+    	   sc.nextLine();
+    	   pers=sc.nextLine().replace("\n", "");
+    	   Personagem p=jogador.encontraPersonagem(pers);
+    	   if(p!=null) {
+    		   System.out.println();
+    		   p.toStringSimplificada();
+    		   System.out.println("\n");
+    	   }else {
+    		   System.out.println("\nPersonagem nao encontrado.\n");
+    	   }
+    	   break;
+       case 7:
     	   break;
        default:
     	   break;

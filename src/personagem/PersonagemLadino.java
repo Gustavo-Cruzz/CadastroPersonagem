@@ -10,6 +10,7 @@ public class PersonagemLadino extends Personagem {
     public PersonagemLadino() {
         super();
         habilidadesFisicas = new ArrayList<>();
+        this.setClasse(ClassePersonagem.LADINO);
     }
 
     // Construtor com parâmetros

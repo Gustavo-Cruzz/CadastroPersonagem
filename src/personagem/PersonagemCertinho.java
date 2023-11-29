@@ -10,6 +10,7 @@ public class PersonagemCertinho extends Personagem {
     public PersonagemCertinho() {
         super();
         magias = new ArrayList<>();
+        this.setClasse(ClassePersonagem.CERTINHO);
     }
 
     // Construtor com parâmetros

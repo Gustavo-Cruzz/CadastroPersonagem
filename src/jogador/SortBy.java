@@ -1,5 +1,5 @@
 package jogador;
 
 public enum SortBy {
-	nome, idade, forca, inteligencia, carisma, constituicao, sabedoria;
+	nome, idade, level, forca, inteligencia, carisma, constituicao, sabedoria;
 }

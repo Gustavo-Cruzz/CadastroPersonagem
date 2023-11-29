@@ -8,6 +8,7 @@ public class PersonagemGuerreiro extends Personagem{
 	public PersonagemGuerreiro() {
 			super(); // Chama o construtor da classe pai (Personagem)
 			habilidadesFisicas = new ArrayList<>();
+			this.setClasse(ClassePersonagem.GUERREIRO);
 		}
 		
 

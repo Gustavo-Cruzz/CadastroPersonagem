@@ -1,6 +1,7 @@
 package jogador;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 import personagem.*;
 
@@ -24,9 +25,82 @@ public class Jogador {
 	public boolean remPersonagem(Personagem personagem) {
 		//Se possível, retira um personagem do ArrayList,
 		//e retorna se a operação foi possível de ser realizada
-		return personagens.remove(personagem);
+		if(personagem == null) {
+			return false;
+		}
+		personagens.remove(personagem);
+		return true;
 	}
 	
+	public boolean alteraPersonagem(Personagem personagem) {
+		//Altera um personagem existente
+		Scanner sc=new Scanner(System.in);
+		for(Personagem p:personagens) {
+			//Procura o personagem com base no nome
+			if(p==personagem) {
+				//Encontrou
+				System.out.println("Qual atributo deseja alterar?\nNome; Idade; Level; Forca; Inteligencia; Carisma; Constituicao; Sabedoria?");
+				String att = sc.next();
+				//Recebe o atributo a ser alterado
+				att=att.toLowerCase();
+				switch (att) {
+					case "nome":
+						System.out.println("Qual o novo nome?");
+						sc.nextLine();
+						p.setNome(sc.nextLine());
+						break;
+					case "idade":
+						System.out.println("Qual a nova idade?");
+						p.setIdade(sc.nextInt());
+						break;
+					case "level":
+						System.out.println("Qual o novo level?");
+						p.setLevel(sc.nextInt());
+						break;
+					case "forca":
+						System.out.println("Qual a nova forca?");
+						p.setForca(sc.nextInt());
+						break;
+					case "inteligencia":
+						System.out.println("Qual a nova inteligencia?");
+						p.setInteligencia(sc.nextInt());
+						break;
+					case "carisma":
+						System.out.println("Qual a nova carisma?");
+						p.setCarisma(sc.nextInt());
+						break;
+					case "constituicao":
+						System.out.println("Qual a nova constituicao?");
+						p.setConstituicao(sc.nextInt());
+						break;
+					case "sabedoria":
+						System.out.println("Qual a nova sabedoria?");
+						p.setSabedoria(sc.nextInt());
+						break;
+					default:
+						return false;
+						//Atributo inserido nao era uma opcao, nao conseguiu alterar
+				}	
+				return true;
+				//Alteracao feita com sucesso
+			}
+		}
+		return false;
+		//O personagem nao existe
+	}
+	
+	public Personagem encontraPersonagem(String nome) {
+		//Procura um personagem com base em seu nome
+		for (Personagem p:personagens) {
+			//Vasculha toda o ArrayList
+			if(p.getNome().toLowerCase().matches(nome.toLowerCase())) {
+				//Se encontra, retorna true
+				return p;
+			}
+		}
+		//Se não encontra, retorna nulo
+		return null;
+	}
 	public String getNomeJogador() {
 		//Consegue o nome do jogador
 		return nomeJogador;
@@ -62,6 +136,10 @@ public class Jogador {
 		case idade:
 			//Ordena por idade
 			Collections.sort(personagens,Sort.pIdade);
+			break;
+		case level:
+			//Ordena por nivel
+			Collections.sort(personagens,Sort.pLevel);
 			break;
 		case forca:
 			//Ordena por força
